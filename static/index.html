@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice Call</title>
+    <title>VCA</title>
     <style>
         * {
             margin: 0;
@@ -470,99 +470,98 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📞 Voice Call</h1>
-            <p>Простые голосовые звонки</p>
+            <h1>VCA</h1>
         </div>
 
         <div class="content">
-            <!-- Форма регистрации -->
+            <!-- Registration Form -->
             <div class="section register-section active">
-                <h2 style="text-align: center; margin-bottom: 25px; color: #ffffff;">Регистрация</h2>
+                <h2 style="text-align: center; margin-bottom: 25px; color: #ffffff;">Registration</h2>
                 <div class="input-group">
-                    <label for="regUsername">Имя пользователя</label>
-                    <input type="text" id="regUsername" placeholder="От 3 до 20 символов">
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername">
                     <div class="error-message" id="regUsernameError"></div>
                 </div>
                 <div class="input-group">
-                    <label for="regPassword">Пароль</label>
-                    <input type="password" id="regPassword" placeholder="Минимум 4 символа">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword">
                     <div class="error-message" id="regPasswordError"></div>
                 </div>
-                <button class="btn btn-primary" id="registerBtn">Зарегистрироваться</button>
+                <button class="btn btn-primary" id="registerBtn">Sign up</button>
                 <div class="auth-switch">
-                    Уже есть аккаунт? <a id="showLogin">Войти</a>
+                    Already have an account? <a id="showLogin">Log in</a>
                 </div>
             </div>
 
-            <!-- Форма входа -->
+            <!-- Login Form -->
             <div class="section login-section">
-                <h2 style="text-align: center; margin-bottom: 25px; color: #ffffff;">Вход</h2>
+                <h2 style="text-align: center; margin-bottom: 25px; color: #ffffff;">Login</h2>
                 <div class="input-group">
-                    <label for="loginUsername">Имя пользователя</label>
-                    <input type="text" id="loginUsername" placeholder="Ваше имя">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" id="loginUsername">
                     <div class="error-message" id="loginUsernameError"></div>
                 </div>
                 <div class="input-group">
-                    <label for="loginPassword">Пароль</label>
-                    <input type="password" id="loginPassword" placeholder="Ваш пароль">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword">
                     <div class="error-message" id="loginPasswordError"></div>
                 </div>
-                <button class="btn btn-success" id="loginBtn">Войти</button>
+                <button class="btn btn-success" id="loginBtn">Sign in</button>
                 <div class="auth-switch">
-                    Нет аккаунта? <a id="showRegister">Зарегистрироваться</a>
+                    Don't have an account? <a id="showRegister">Sign up</a>
                 </div>
             </div>
 
-            <!-- Список пользователей -->
+            <!-- Users List -->
             <div class="section call-section">
                 <div class="profile-section">
-                    <h3 id="currentUsernameDisplay">👤 Пользователь</h3>
-                    <button class="logout-btn" id="logoutBtn">Выйти</button>
+                    <h3 id="currentUsernameDisplay">User</h3>
+                    <button class="logout-btn" id="logoutBtn">Log out</button>
                 </div>
                 <div class="users-list">
-                    <h3>Онлайн пользователи</h3>
-                    <input type="text" id="searchInput" class="search-input" placeholder="Поиск пользователей...">
+                    <h3>Online</h3>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search...">
                     <div class="search-results" id="searchResults"></div>
                     <div id="usersContainer">
                         <div class="empty-state">
                             <div class="spinner"></div>
-                            <p>Загрузка списка...</p>
+                            <p>Loading users...</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Исходящий звонок -->
+            <!-- Outgoing Call -->
             <div class="section calling-section">
                 <div class="call-info">
-                    <h3>Вызов <span id="callingUser"></span></h3>
-                    <p>Ожидание ответа...</p>
+                    <h3>Calling <span id="callingUser"></span></h3>
+                    <p>Waiting for answer...</p>
                 </div>
-                <button class="btn btn-danger" id="cancelCallBtn">Отменить</button>
+                <button class="btn btn-danger" id="cancelCallBtn">Cancel</button>
             </div>
 
-            <!-- Входящий звонок -->
+            <!-- Incoming Call -->
             <div class="section incoming-call-section">
                 <div class="call-info">
-                    <h3>Входящий вызов</h3>
-                    <p>От: <span id="incomingUser"></span></p>
+                    <h3>Incoming call</h3>
+                    <p>From: <span id="incomingUser"></span></p>
                 </div>
                 <div class="call-controls">
-                    <button class="btn btn-decline" id="declineBtn">Отклонить</button>
-                    <button class="btn btn-accept" id="acceptBtn">Принять</button>
+                    <button class="btn btn-decline" id="declineBtn">Decline</button>
+                    <button class="btn btn-accept" id="acceptBtn">Accept</button>
                 </div>
             </div>
 
-            <!-- В процессе звонка -->
+            <!-- In Call -->
             <div class="section in-call-section">
                 <div class="call-info">
-                    <h3>Разговор с <span id="currentCallUser"></span></h3>
+                    <h3>Call with <span id="currentCallUser"></span></h3>
                     <p id="callDuration">00:00</p>
                 </div>
                 
                 <div class="audio-indicators">
                     <div class="audio-indicator">
-                        <label>🎤 Микрофон</label>
+                        <label>Microphone</label>
                         <div class="level-bars" id="micLevel">
                             <div class="level-bar"></div>
                             <div class="level-bar"></div>
@@ -577,7 +576,7 @@
                         </div>
                     </div>
                     <div class="audio-indicator remote">
-                        <label>🎧 Собеседник</label>
+                        <label>Remote user</label>
                         <div class="level-bars" id="remoteLevel">
                             <div class="level-bar"></div>
                             <div class="level-bar"></div>
@@ -593,7 +592,7 @@
                     </div>
                 </div>
                 
-                <button class="btn btn-danger btn-hangup" id="hangupBtn">Завершить</button>
+                <button class="btn btn-danger btn-hangup" id="hangupBtn">End call</button>
             </div>
         </div>
     </div>
